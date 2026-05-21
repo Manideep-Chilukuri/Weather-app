@@ -16,6 +16,8 @@ A minimalist, static weather lookup app built for GitHub Pages using HTML, CSS, 
 2. Open `index.html` in your browser.
 3. Enter your OpenWeatherMap API key directly into the app when prompted.
 
+> If the page still shows the old message, refresh the browser or clear the cache so the updated script loads.
+
 ## API Key
 
 This project is client-side only, so the API key is entered in the browser and not stored in the repository.
