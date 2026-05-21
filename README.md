@@ -13,22 +13,16 @@ A minimalist, static weather lookup app built for GitHub Pages using HTML, CSS, 
 ## Setup
 
 1. Duplicate the project files to your web server or GitHub Pages branch.
-2. Open `script.js` and replace:
-
-```js
-const API_KEY = 'REPLACE_WITH_YOUR_OPENWEATHERMAP_API_KEY';
-```
-
-with your OpenWeatherMap API key.
-3. Save the file and open `index.html` in your browser.
+2. Open `index.html` in your browser.
+3. Enter your OpenWeatherMap API key directly into the app when prompted.
 
 ## API Key
 
-This project is client-side only, so the API key is visible in the deployed JavaScript bundle.
+This project is client-side only, so the API key is entered in the browser and not stored in the repository.
 
 - Do not commit a private API key to the repository.
 - Use a free tier key with domain restrictions if available.
-- For GitHub Pages, place the key directly in `script.js` before deployment.
+- Keep your API key private and only enter it while using the app.
 
 ## Deploy to GitHub Pages
 

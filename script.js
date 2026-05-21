@@ -1,4 +1,3 @@
-const API_KEY = 'REPLACE_WITH_YOUR_OPENWEATHERMAP_API_KEY';
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 const form = document.getElementById('weather-form');
@@ -10,6 +9,7 @@ const weatherIcon = document.getElementById('weather-icon');
 const temperature = document.getElementById('temperature');
 const humidity = document.getElementById('humidity');
 const windSpeed = document.getElementById('wind-speed');
+const apiKeyInput = document.getElementById('api-key');
 
 function showMessage(text) {
   message.textContent = text;
@@ -32,12 +32,12 @@ function displayWeather(data) {
   output.classList.remove('hidden');
 }
 
-async function fetchWeather(city, country) {
+async function fetchWeather(city, country, apiKey) {
   const query = country ? `${city},${country}` : city;
   const params = new URLSearchParams({
     q: query,
     units: 'metric',
-    appid: API_KEY,
+    appid: apiKey,
   });
 
   const response = await fetch(`${API_URL}?${params}`);
@@ -59,20 +59,22 @@ form.addEventListener('submit', async (event) => {
   resetOutput();
   showMessage('');
 
+  const apiKey = apiKeyInput.value.trim();
+
   if (!city) {
     showMessage('Please enter a city name.');
     return;
   }
 
-  if (!API_KEY || API_KEY === 'REPLACE_WITH_YOUR_OPENWEATHERMAP_API_KEY') {
-    showMessage('Add your OpenWeatherMap API key to script.js before using the app.');
+  if (!apiKey) {
+    showMessage('Please enter your OpenWeatherMap API key.');
     return;
   }
 
   showMessage('Loading weather...');
 
   try {
-    const data = await fetchWeather(city, country);
+    const data = await fetchWeather(city, country, apiKey);
     displayWeather(data);
     showMessage('');
   } catch (error) {
